@@ -5,6 +5,10 @@ import CharactersStack from './features/Characters';
 import {SWRConfig} from 'swr';
 import storage from './services/storage';
 
+if (__DEV__) {
+  require('./ReactotronConfig');
+}
+
 enableFreeze(true);
 enableScreens(true);
 

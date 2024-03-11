@@ -2,6 +2,7 @@
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
     "skipLibCheck": true,
+    "strict": true,
     "baseUrl": ".",
     "paths": {
       "@services/*": ["src/services/*"],
