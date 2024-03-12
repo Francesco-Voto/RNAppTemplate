@@ -1,5 +1,6 @@
 import {useRoute, useNavigation} from '@react-navigation/native';
 import {Suspense, useCallback, useMemo} from 'react';
+import Reactotron from 'reactotron-react-native';
 import {
   Image,
   Pressable,
@@ -28,10 +29,20 @@ const CharacterOverviewComponent = () => {
 
   const isCharacterFavourite = isFavourite(params.id);
 
-  const {goBack} = useNavigation<any>();
+  const {goBack} = useNavigation();
+  Reactotron.onCustomCommand({
+    title: 'Go Back',
+    description: 'Goes back',
+    command: 'goBack',
+    handler: () => {
+      Reactotron.log('Going back');
+      goBack();
+    },
+  });
   const styles = useMemo(() => generateStyles(edgeInsets), [edgeInsets]);
 
   const {data} = useGetCharacter(params.id);
+
   const onPressGoBack = useCallback(() => {
     goBack();
   }, [goBack]);
