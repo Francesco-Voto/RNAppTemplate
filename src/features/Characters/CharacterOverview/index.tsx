@@ -30,6 +30,7 @@ const CharacterOverviewComponent = () => {
   const isCharacterFavourite = isFavourite(params.id);
 
   const {goBack} = useNavigation();
+
   Reactotron.onCustomCommand({
     title: 'Go Back',
     description: 'Goes back',
